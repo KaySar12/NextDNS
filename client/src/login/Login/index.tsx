@@ -52,7 +52,7 @@ class Login extends Component<LoginProps, LoginState> {
             <div className="login">
                 <div className="login__form">
                     <div className="text-center mb-6">
-                        <Logo className="h-6 login__logo" />
+                        <Logo className="login__logo " />
                     </div>
 
                     <Form onSubmit={this.handleSubmit} processing={processingLogin} />
@@ -66,7 +66,7 @@ class Login extends Component<LoginProps, LoginState> {
                                 <Trans
                                     components={[
                                         <a
-                                            href="https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration#password-reset"
+                                            href="t"
                                             key="0"
                                             target="_blank"
                                             rel="noopener noreferrer">

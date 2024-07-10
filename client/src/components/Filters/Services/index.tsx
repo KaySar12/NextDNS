@@ -53,6 +53,7 @@ const Services = () => {
     };
 
     const handleScheduleSubmit = (values: any) => {
+        debugger
         dispatch(
             updateBlockedServices({
                 ids: services.list.ids,
@@ -60,13 +61,12 @@ const Services = () => {
             }),
         );
     };
-
     const initialValues = getInitialDataForServices(services.list.ids);
 
     if (!initialValues) {
         return null;
     }
-
+    console.log('services.list.schedule service' , services.list.schedule)
     return (
         <>
             <PageTitle title={t('blocked_services')} subtitle={t('blocked_services_desc')} />
@@ -87,7 +87,8 @@ const Services = () => {
                 title={t('schedule_services')}
                 subtitle={t('schedule_services_desc')}
                 bodyType="card-body box-body--settings">
-                <ScheduleForm schedule={services.list.schedule} onScheduleSubmit={handleScheduleSubmit} />
+                <ScheduleForm schedule={services.list.schedule}
+                 onScheduleSubmit={handleScheduleSubmit} />
             </Card>
         </>
     );

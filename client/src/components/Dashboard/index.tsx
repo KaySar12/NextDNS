@@ -21,7 +21,13 @@ import Dropdown from '../ui/Dropdown';
 import UpstreamResponses from './UpstreamResponses';
 
 import UpstreamAvgTime from './UpstreamAvgTime';
-import { AccessData, DashboardData, StatsData } from '../../initialState';
+import { AccessData, DashboardData, RootState, StatsData } from '../../initialState';
+import Card from '../ui/Card';
+import { ScheduleForm } from '../Filters/Services/ScheduleForm';
+
+// eslint-disable-next-line import/order
+import { useDispatch, useSelector } from 'react-redux';
+import { updateBlockedServices } from '../../actions/services';
 
 interface DashboardProps {
     dashboard: DashboardData;
@@ -139,9 +145,21 @@ const Dashboard = ({
 
         return hh ? `${formattedHH}:${mm}:${ss}` : `${mm}:${ss}`;
     };
+    // eslint-disable-next-line spaced-comment
+    /*update custom */
 
+    const services = useSelector((state: RootState) => state.services);
+    const dispatch = useDispatch();
+    const handleScheduleSubmit = (values: any) => {
+        dispatch(
+            updateBlockedServices({
+                ids: services.list.ids,
+                schedule: values,
+            }),
+        );
+    };
     const getProtectionBtnText = (status: any) => (status ? t('disable_protection') : t('enable_protection'));
-
+    console.log('services.list.schedule form' , services.list.schedule)
     return (
         <>
             <PageTitle title={t('dashboard')} containerClass="page-title--dashboard">
@@ -205,8 +223,15 @@ const Dashboard = ({
                             numReplacedParental={stats.numReplacedParental}
                             refreshButton={refreshButton}
                         />
+                        <Card
+                        title={t('schedule_services')}
+                        subtitle={t('schedule_services_desc')}
+                        bodyType="card-body box-body--settings">
+                        <ScheduleForm schedule={services.list.schedule } 
+                        onScheduleSubmit={handleScheduleSubmit} />
+                    </Card>
                     </div>
-
+                    
                     <div className="col-lg-6">
                         <Counters subtitle={subtitle} refreshButton={refreshButton} />
                     </div>

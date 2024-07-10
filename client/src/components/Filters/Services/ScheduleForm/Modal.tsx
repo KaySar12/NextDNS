@@ -26,7 +26,9 @@ interface ModalProps {
     onSubmit: (values: any) => void;
 }
 
+
 export const Modal = ({ isOpen, currentDay, schedule, onClose, onSubmit }: ModalProps) => {
+    debugger;
     const [t] = useTranslation();
 
     const intialTimezone =

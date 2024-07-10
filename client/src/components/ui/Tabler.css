@@ -10435,7 +10435,12 @@ body.fixed-header .header {
 [data-theme='dark'] .header-brand-img {
     filter: invert(1);
 }
-
+.header-logo{
+    filter: brightness(1.5);
+}
+[data-theme='dark'] .header-logo {
+    filter: brightness(3.5);
+}
 .header-avatar {
     width: 2rem;
     height: 2rem;

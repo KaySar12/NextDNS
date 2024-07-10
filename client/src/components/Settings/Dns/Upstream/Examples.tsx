@@ -146,7 +146,7 @@ const Examples = (props: ExamplesProps) => (
                 <Trans
                     components={[
                         <a
-                            href="https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration#upstreams-for-domains"
+                            href=""
                             target="_blank"
                             rel="noopener noreferrer"
                             key="0">

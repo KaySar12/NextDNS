@@ -20,7 +20,7 @@ const UpdateTopline = () => {
     };
 
     return (
-        <Topline type="info">
+        <Topline type="info" >
             <>
                 <Trans
                     values={{ version: newVersion }}

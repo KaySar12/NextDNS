@@ -190,13 +190,13 @@ const App = () => {
 
     return (
         <HashRouter hashType="noslash">
-            {updateAvailable && (
+            {/* {updateAvailable && (
                 <>
                     <UpdateTopline />
 
                     <UpdateOverlay />
                 </>
-            )}
+            )} */}
 
             {!processingEncryption && <EncryptionTopline />}
 

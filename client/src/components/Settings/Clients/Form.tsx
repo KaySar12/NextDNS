@@ -193,6 +193,7 @@ let Form = (props: FormProps) => {
     const [activeTabLabel, setActiveTabLabel] = useState('settings');
 
     const handleScheduleSubmit = (values: any) => {
+        debugger
         change('blocked_services_schedule', { ...values });
     };
 
@@ -416,7 +417,7 @@ let Form = (props: FormProps) => {
                                     <a
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        href="https://link.adtidy.org/forward.html?action=dns_kb_filtering_syntax_ctag&from=ui&app=home"
+                                        href=""
                                         key="0">
                                         link
                                     </a>,
@@ -497,6 +498,7 @@ Form = connect((state) => {
     const useGlobalSettings = selector(state, 'use_global_settings');
     const useGlobalServices = selector(state, 'use_global_blocked_services');
     const blockedServicesSchedule = selector(state, 'blocked_services_schedule');
+    console.log("blockedServicesSchedule", blockedServicesSchedule)
     return {
         useGlobalSettings,
         useGlobalServices,
