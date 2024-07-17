@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
 
 import { REPOSITORY, PRIVACY_POLICY_LINK, THEMES } from '../../helpers/constants';
-import { LANGUAGES } from '../../helpers/twosky';
+// import { LANGUAGES } from '../../helpers/twosky';
 import i18n from '../../i18n';
 
 import Version from './Version';
@@ -15,6 +15,7 @@ import { setHtmlLangAttr, setUITheme } from '../../helpers/helpers';
 
 import { changeTheme } from '../../actions';
 import { RootState } from '../../initialState';
+// import { NavLink } from 'react-router-dom';
 
 const linksData = [
     {
@@ -124,6 +125,13 @@ const Footer = () => {
                 <div className="container">
                     <div className="footer__row">
                         <div className="footer__column footer__column--links">{renderLinks(linksData)}</div>
+                        {/* <div className="footer__column footer__column--links">
+                            <NavLink to={'/guide'} key={'/guide'} exact={true || false}>
+                                <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
+                                    Hướng dẫn thiết lập
+                                </button>
+                            </NavLink>
+                        </div> */}
 
                         <div className="footer__column footer__column--theme">
                             <div className="footer__themes">
@@ -131,7 +139,7 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        <div className="footer__column footer__column--language">
+                        {/* <div className="footer__column footer__column--language">
                             <select
                                 className="form-control select select--language"
                                 value={i18n.language}
@@ -142,7 +150,7 @@ const Footer = () => {
                                     </option>
                                 ))}
                             </select>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </footer>

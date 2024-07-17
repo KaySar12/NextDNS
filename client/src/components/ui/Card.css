@@ -4,6 +4,15 @@
     padding: 0.6rem 1.5rem;
     flex-shrink: 0;
 }
+.card-header-color {
+    background-color: Var(--primary-blue-web);
+    color: #ffffff;
+}
+.card-header-radius {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 
 .card-subtitle {
     margin: 4px 0;

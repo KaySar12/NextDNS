@@ -173,7 +173,7 @@ const Dashboard = ({
                         <Trans>refresh_statics</Trans>
                     </button>
                     <NavLink to={'/custom_rules'} key={'/custom_rules'} exact={true || false} className={`order-2`}>
-                        <button type="button" className="btn btn-success btn-standard btn-sm">
+                        <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
                             Chặn tên miền nhanh
                         </button>
                     </NavLink>
@@ -182,13 +182,18 @@ const Dashboard = ({
                         key={'/blocked_services'}
                         exact={true || false}
                         className={`order-2`}>
-                        <button type="button" className="btn btn-success btn-standard btn-sm">
+                        <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
                             Chặn dịch vụ nhanh
                         </button>
                     </NavLink>
                     <NavLink to={'/clients'} key={'/clients'} exact={true || false} className={`order-2`}>
-                        <button type="button" className="btn btn-success btn-standard btn-sm">
+                        <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
                             Chặn theo thiết bị
+                        </button>
+                    </NavLink>
+                    <NavLink to={'/settings'} key={'/settings'} exact={true || false} className={`order-2`}>
+                        <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
+                            Chế độ an toàn
                         </button>
                     </NavLink>
                 </PageTitle>

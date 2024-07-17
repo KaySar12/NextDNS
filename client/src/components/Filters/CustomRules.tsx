@@ -63,7 +63,7 @@ class CustomRules extends Component<CustomRulesProps> {
         return (
             <>
                 <PageTitle title={t('custom_filtering_rules')} />
-
+                <Check onSubmit={this.handleCheck} />
                 <Card subtitle={t('custom_filter_rules_hint')}>
                     <form onSubmit={this.handleSubmit}>
                         <div className="text-edit-container mb-4">
@@ -73,10 +73,7 @@ class CustomRules extends Component<CustomRulesProps> {
                                 onChange={this.handleChange}
                                 onScroll={this.onScroll}
                             />
-                            {getTextareaCommentsHighlight(this.ref, userRules, [
-                                COMMENT_LINE_DEFAULT_TOKEN,
-                                '!',
-                            ])}
+                            {getTextareaCommentsHighlight(this.ref, userRules, [COMMENT_LINE_DEFAULT_TOKEN, '!'])}
                         </div>
 
                         <div className="card-actions">
@@ -93,8 +90,6 @@ class CustomRules extends Component<CustomRulesProps> {
 
                     <Examples />
                 </Card>
-
-                <Check onSubmit={this.handleCheck} />
             </>
         );
     }

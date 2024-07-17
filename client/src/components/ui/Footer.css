@@ -36,7 +36,7 @@
 
 .footer__link--report {
     position: relative;
-    top: 1px;
+    /* top: 1px; */
     margin-right: 0;
 }
 

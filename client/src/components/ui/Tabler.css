@@ -2642,16 +2642,16 @@ fieldset:disabled a.btn {
 }
 
 .btn-success {
-    color: var(--primary-blue-web);
+    color: #fff;
     background-color:var(--primary-blue-web);
-    background-color: transparent;
     border-color:var(--primary-blue-web);
+    
 }
 
 .btn-success:hover {
     color: #fff;
-    background-color:var(--primary-blue-web);
-    border-color:var(--primary-blue-web);
+    background-color:var(--primary-dark-blue-web);
+    border-color:var(--primary-dark-blue-web);
 }
 
 .btn-success:focus,
@@ -2958,10 +2958,10 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-success {
-    color: #5eba00;
+    color: var(--primary-dark-blue-web);
     background-color: transparent;
     background-image: none;
-    border-color: #5eba00;
+    border-color: var(--primary-dark-blue-web);
 }
 
 .btn-outline-success:hover {
@@ -4600,7 +4600,7 @@ tbody.collapse.show {
 }
 
 .card-header:first-child {
-    border-radius: calc(3px - 1px) calc(3px - 1px) 0 0;
+    border-radius: calc(8px - 2px) calc(8px - 2px) 0 0;
 }
 
 .card-header + .list-group .list-group-item:first-child {
@@ -16454,7 +16454,7 @@ svg {
     display: -moz-inline-stack;
     display: inline-block;
     zoom: 1;
-    *display: inline;
+    /* *display: inline; */
 }
 
 .selectize-control.multi .selectize-input > div {

@@ -87,6 +87,17 @@
 }
 .btn-logout{
     color: var(--white);
+
+}
+.btn-logout:hover{
+    color: var(--primary-dark-blue-web);
+    background-color: var(--primary-yellow-web);
+    border: 1px solid var(--primary-yellow-web);
+}
+
+.btn-logout-border{
+    border-radius: 8px;
+    border: 1px solid var(--white);
 }
 
 .header__logout {

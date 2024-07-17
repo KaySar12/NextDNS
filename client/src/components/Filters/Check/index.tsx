@@ -28,7 +28,7 @@ const Check = (props: CheckProps) => {
     const hostname = useSelector((state: RootState) => state.filtering.check.hostname);
 
     return (
-        <Card title={t('check_title')} subtitle={t('check_desc')}>
+        <Card title={t('check_title')}>
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-12 col-md-6 input-dashboard" style={{ maxWidth: '100%', flexBasis: '100%' }}>

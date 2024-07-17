@@ -16,6 +16,7 @@ const Tab = ({ activeTabLabel, label, title, onClick }: TabProps) => {
     const tabClass = classnames({
         tab__control: true,
         'tab__control--active': activeTabLabel === label,
+        tab__view: 'border: 1px solid',
     });
 
     return (

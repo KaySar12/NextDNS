@@ -5,9 +5,11 @@ import { NavLink } from 'react-router-dom';
 import enhanceWithClickOutside from 'react-click-outside';
 import classnames from 'classnames';
 import { Trans, withTranslation } from 'react-i18next';
+import { LANGUAGES } from '../../helpers/twosky';
 import { SETTINGS_URLS, FILTERS_URLS, MENU_URLS } from '../../helpers/constants';
-
+import i18n from '../../i18n';
 import Dropdown from '../ui/Dropdown';
+import { setHtmlLangAttr } from '../../helpers/helpers';
 
 const MENU_ITEMS = [
     {
@@ -28,12 +30,12 @@ const MENU_ITEMS = [
         text: 'query_log',
         order: 3,
     },
-    {
-        route: MENU_URLS.guide,
-        icon: 'setup',
-        text: 'setup_guide',
-        order: 4,
-    },
+    // {
+    //     route: MENU_URLS.guide,
+    //     icon: 'setup',
+    //     text: 'setup_guide',
+    //     order: 4,
+    // },
 ];
 
 const SETTINGS_ITEMS = [
@@ -53,10 +55,10 @@ const SETTINGS_ITEMS = [
         route: SETTINGS_URLS.clients,
         text: 'client_settings',
     },
-    {
-        route: SETTINGS_URLS.dhcp,
-        text: 'dhcp_settings',
-    },
+    // {
+    //     route: SETTINGS_URLS.dhcp,
+    //     text: 'dhcp_settings',
+    // },
 ];
 
 const FILTERS_ITEMS = [
@@ -92,6 +94,12 @@ interface MenuProps {
 class Menu extends Component<MenuProps> {
     handleClickOutside = () => {
         this.props.closeMenu();
+    };
+
+    changeLanguage = (event: any) => {
+        const { value } = event.target;
+        i18n.changeLanguage(value);
+        setHtmlLangAttr(value);
     };
 
     closeMenu = () => {
@@ -153,14 +161,30 @@ class Menu extends Component<MenuProps> {
             <>
                 <div className={menuClass}>
                     <ul className="nav nav-tabs border-0 flex-column flex-lg-row flex-nowrap">
-                        {MENU_ITEMS.map((item) => (
-                            <li className={`nav-item order-${item.order}`} key={item.text} onClick={this.closeMenu}>
-                                {this.getNavLink({
-                                    ...item,
-                                    className: 'nav-link',
-                                })}
+                        <>
+                            {MENU_ITEMS.map((item) => (
+                                <li className={`nav-item order-${item.order}`} key={item.text} onClick={this.closeMenu}>
+                                    {this.getNavLink({
+                                        ...item,
+                                        className: 'nav-link',
+                                    })}
+                                </li>
+                            ))}
+                            <li className={`nav-item order-5 nav-link`} onClick={this.closeMenu}>
+                                <div className="footer__column footer__column--language">
+                                    <select
+                                        className="form-control select select--language"
+                                        value={i18n.language}
+                                        onChange={this.changeLanguage}>
+                                        {Object.keys(LANGUAGES).map((lang) => (
+                                            <option key={lang} value={lang}>
+                                                {LANGUAGES[lang]}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
                             </li>
-                        ))}
+                        </>
 
                         <li className="nav-item order-1">
                             {this.getDropdown({

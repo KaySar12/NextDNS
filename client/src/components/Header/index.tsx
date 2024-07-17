@@ -59,7 +59,7 @@ const Header = () => {
                     <div className="header__column">
                         <div className="header__right">
                             {!processingProfile && name && (
-                                <a href="control/logout" className="btn btn-lg btn-logout">
+                                <a href="control/logout" className="btn btn-lg btn-logout btn-logout-border">
                                     {t('sign_out')}
                                 </a>
                             )}

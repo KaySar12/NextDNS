@@ -58,6 +58,7 @@
 .tab__control--active {
     color: #4a4a4a;
     opacity: 1;
+    border-bottom: 1px solid;
 }
 
 .tab__title {

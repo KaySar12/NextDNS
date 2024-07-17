@@ -603,7 +603,7 @@
     "tags_desc": "Bạn có thể chọn các thẻ tương ứng với thiết bị. Bao gồm các thẻ trong các quy tắc lọc để áp dụng chúng chính xác hơn. <0>Tìm hiểu thêm</0>.",
     "form_select_tags": "Chọn thẻ khách hàng",
     "check_title": "Chặn tên miền nhanh",
-    "check_desc": "Kiểm tra xem tên miền hiện tại có bị chặn không.",
+    "check_desc": "Kiểm tra xem tên miền hiện tại có bị chặn không?",
     "check": "Kiểm tra",
     "form_enter_host": "Nhập tên máy chủ",
     "filtered_custom_rules": "Được lọc bởi các quy tắc lọc tùy chỉnh",
@@ -741,4 +741,5 @@
     "upstream_dns_cache_configuration": "Cấu hình bộ nhớ đệm upstream của các máy chủ DNS",
     "enable_upstream_dns_cache": "Bật bộ nhớ cache cho cấu hình ngược dòng của máy chủ upstream của khách hàng này",
     "dns_cache_size": "Kích thước bộ nhớ cache DNS, tính bằng byte"
+    
 }
