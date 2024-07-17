@@ -1,4 +1,5 @@
 :root {
+    --white: #fffff;
     --black: #131313;
     --bgcolor: #f5f7fb;
     --mcolor: #495057;
@@ -12,7 +13,7 @@
     --ctrl-dropdown-color: #212529;
     --ctrl-dropdown-bgcolor-focus: #f8f9fa;
     --ctrl-dropdown-color-focus: #16181b;
-    --btn-success-bgcolor: #5eba00;
+    --btn-success-bgcolor: #e4aa24;
     --form-disabled-bgcolor: #f8f9fa;
     --form-disabled-color: #495057;
     --rt-nodata-bgcolor: rgba(255, 255, 255, 0.8);
@@ -51,7 +52,7 @@
     --ctrl-dropdown-color: #fff;
     --ctrl-dropdown-bgcolor-focus: #000;
     --ctrl-dropdown-color-focus: #fff;
-    --btn-success-bgcolor: #67b279;
+    --btn-success-bgcolor: #ffd063;
     --form-disabled-bgcolor: #2d2d2d;
     --form-disabled-color: #a5a5a5;
     --logs__text-color: #f3f3f3;

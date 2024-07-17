@@ -5,8 +5,8 @@
 }
 
 .nav-tabs .nav-link.active:hover {
-    border-color: #4b9400;
-    color: #4b9400;
+    border-color: var(--btn-success-bgcolor);
+    color: var(--btn-success-bgcolor);
 }
 
 .nav-icon {
@@ -84,6 +84,9 @@
     align-items: center;
     justify-content: flex-end;
     min-width: 100px;
+}
+.btn-logout{
+    color: var(--white);
 }
 
 .header__logout {

@@ -69,7 +69,7 @@ const DomainCell = ({ value }: DomainCellProps) => {
             </div>
             {trackerData && (
                 <Tooltip content={content} placement="top" className="tooltip-container tooltip-custom--wide">
-                    <svg className="icons icon--24 icon--green ml-1">
+                    <svg className="icons icon--24 icon--blue ml-1">
                         <use xlinkHref="#privacy" />
                     </svg>
                 </Tooltip>

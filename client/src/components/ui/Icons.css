@@ -38,6 +38,10 @@
 .icon--green {
     color: var(--green-74);
 }
+.icon--blue {
+    color: var(--primary-blue-web);
+}
+
 
 .icon--disabled {
     color: var(--gray-d8);

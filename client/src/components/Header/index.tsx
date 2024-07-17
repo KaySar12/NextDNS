@@ -45,7 +45,7 @@ const Header = () => {
 
                     <div className="header__column">
                         <div className="d-flex align-items-center">
-                            <Link to="/" className="nav-link pl-0 pr-1">
+                            <Link to="/" className="nav-link p-2  ">
                                 <Logo className="header-brand-img" />
                             </Link>
                             {!processing && isCoreRunning && (
@@ -59,7 +59,7 @@ const Header = () => {
                     <div className="header__column">
                         <div className="header__right">
                             {!processingProfile && name && (
-                                <a href="control/logout" className="btn btn-sm btn-outline-secondary">
+                                <a href="control/logout" className="btn btn-lg btn-logout">
                                     {t('sign_out')}
                                 </a>
                             )}

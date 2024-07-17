@@ -123,7 +123,7 @@ export const renderGroupField = ({
                     <span className="input-group-append">
                         <button
                             type="button"
-                            className="btn btn-secondary btn-icon btn-icon--green"
+                            className="btn btn-secondary btn-icon btn-icon--blue"
                             onClick={removeField}>
                             <svg className="icon icon--24">
                                 <use xlinkHref="#cross" />

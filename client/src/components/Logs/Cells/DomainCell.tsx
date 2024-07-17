@@ -47,13 +47,13 @@ const DomainCell = ({
     const hasTracker = !!tracker;
 
     const lockIconClass = classNames('icons icon--24 d-none d-sm-block', {
-        'icon--green': answer_dnssec,
+        'icon--blue': answer_dnssec,
         'icon--disabled': !answer_dnssec,
         'my-3': isDetailed,
     });
 
     const privacyIconClass = classNames('icons mx-2 icon--24 d-none d-sm-block logs__question', {
-        'icon--green': hasTracker,
+        'icon--blue': hasTracker,
         'icon--disabled': !hasTracker,
         'my-3': isDetailed,
     });

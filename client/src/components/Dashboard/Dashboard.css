@@ -41,8 +41,19 @@
 .page-title--dashboard {
     display: flex;
     align-items: center;
-}
+    justify-content: space-between;
+    gap: 1rem;
 
+}
+.page-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.page-margin-bottom{
+    margin: 0 0 1.5rem;
+}
 @media (max-width: 767.98px) {
     .page-title--dashboard {
         flex-direction: column;

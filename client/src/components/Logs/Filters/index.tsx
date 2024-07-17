@@ -30,7 +30,7 @@ const Filters = ({ filter, setIsLoading }: FiltersProps) => {
 
                 <button
                     type="button"
-                    className="btn btn-icon--green logs__refresh"
+                    className="btn btn-icon--blue logs__refresh"
                     title={t('refresh_btn')}
                     onClick={refreshLogs}>
                     <svg className="icons icon--24">

@@ -31,16 +31,18 @@ const Check = (props: CheckProps) => {
         <Card title={t('check_title')} subtitle={t('check_desc')}>
             <form onSubmit={handleSubmit}>
                 <div className="row">
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-md-6 input-dashboard" style={{ maxWidth: '100%', flexBasis: '100%' }}>
                         <div className="input-group">
-                            <Field
-                                id="name"
-                                name="name"
-                                component={renderInputField}
-                                type="text"
-                                className="form-control"
-                                placeholder={t('form_enter_host')}
-                            />
+                            {
+                                <Field
+                                    id="name"
+                                    name="name"
+                                    component={renderInputField}
+                                    type="text"
+                                    className="form-control"
+                                    placeholder={t('form_enter_host')}
+                                />
+                            }
 
                             <span className="input-group-append">
                                 <button

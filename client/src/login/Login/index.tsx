@@ -18,6 +18,8 @@ import Form from './Form';
 import './Login.css';
 import '../../components/ui/Tabler.css';
 
+import logo2 from '../../../public/assets/apple-touch-icon-180x180.png'
+
 type LoginProps = {
     login: {
         processingLogin: boolean;
@@ -52,9 +54,8 @@ class Login extends Component<LoginProps, LoginState> {
             <div className="login">
                 <div className="login__form">
                     <div className="text-center mb-6">
-                        <Logo className="login__logo " />
+                        {/* <Logo /> */}
                     </div>
-
                     <Form onSubmit={this.handleSubmit} processing={processingLogin} />
 
                     <div className="login__info">

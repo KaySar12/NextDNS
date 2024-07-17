@@ -106,38 +106,42 @@ class Menu extends Component<MenuProps> {
         return isActivePage ? 'active' : '';
     };
 
-    getNavLink = ({ route, exact, text, order, className, icon }: any) => (
-        <NavLink
-            to={route}
-            key={route}
-            exact={exact || false}
-            className={`order-${order} ${className}`}
-            onClick={this.closeMenu}>
-            {icon && (
-                <svg className="nav-icon">
-                    <use xlinkHref={`#${icon}`} />
-                </svg>
-            )}
+    getNavLink = ({ route, exact, text, order, className, icon }: any) => {
+        return (
+            <NavLink
+                to={route}
+                key={route}
+                exact={exact || false}
+                className={`order-${order} ${className}`}
+                onClick={this.closeMenu}>
+                {icon && (
+                    <svg className="nav-icon">
+                        <use xlinkHref={`#${icon}`} />
+                    </svg>
+                )}
 
-            <Trans>{text}</Trans>
-        </NavLink>
-    );
+                <Trans>{text}</Trans>
+            </NavLink>
+        );
+    };
 
-    getDropdown = ({ label, order, URLS, icon, ITEMS }: any) => (
-        <Dropdown
-            label={this.props.t(label)}
-            baseClassName="dropdown"
-            controlClassName={`nav-link ${this.getActiveClassForDropdown(URLS)}`}
-            icon={icon}>
-            {ITEMS.map((item: any) =>
-                this.getNavLink({
-                    ...item,
-                    order,
-                    className: 'dropdown-item',
-                }),
-            )}
-        </Dropdown>
-    );
+    getDropdown = ({ label, order, URLS, icon, ITEMS }: any) => {
+        return (
+            <Dropdown
+                label={this.props.t(label)}
+                baseClassName="dropdown"
+                controlClassName={`nav-link ${this.getActiveClassForDropdown(URLS)}`}
+                icon={icon}>
+                {ITEMS.map((item: any) =>
+                    this.getNavLink({
+                        ...item,
+                        order,
+                        className: 'dropdown-item',
+                    }),
+                )}
+            </Dropdown>
+        );
+    };
 
     render() {
         const menuClass = classnames({

@@ -17,6 +17,7 @@ const Version = () => {
     }
 
     const version = dashboard?.dnsVersion || install?.dnsVersion;
+    const fakeVersion = 'v1.0.0';
 
     const onClick = () => {
         dispatch(getVersion(true));
@@ -29,7 +30,8 @@ const Version = () => {
                     <>
                         <Trans>version</Trans>:&nbsp;
                         <span className="version__value" title={version}>
-                            {version}
+                            {/* {version} */}
+                            {fakeVersion}
                         </span>
                     </>
                 )}

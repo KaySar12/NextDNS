@@ -193,7 +193,6 @@ let Form = (props: FormProps) => {
     const [activeTabLabel, setActiveTabLabel] = useState('settings');
 
     const handleScheduleSubmit = (values: any) => {
-        debugger
         change('blocked_services_schedule', { ...values });
     };
 
@@ -414,11 +413,7 @@ let Form = (props: FormProps) => {
                         <div className="form__desc mt-0 mb-2">
                             <Trans
                                 components={[
-                                    <a
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href=""
-                                        key="0">
+                                    <a target="_blank" rel="noopener noreferrer" href="" key="0">
                                         link
                                     </a>,
                                 ]}>
@@ -498,7 +493,6 @@ Form = connect((state) => {
     const useGlobalSettings = selector(state, 'use_global_settings');
     const useGlobalServices = selector(state, 'use_global_blocked_services');
     const blockedServicesSchedule = selector(state, 'blocked_services_schedule');
-    console.log("blockedServicesSchedule", blockedServicesSchedule)
     return {
         useGlobalSettings,
         useGlobalServices,

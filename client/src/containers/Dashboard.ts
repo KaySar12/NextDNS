@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toggleProtection, getClients } from '../actions';
 import { getStats, getStatsConfig, setStatsConfig } from '../actions/stats';
 import { getAccessList } from '../actions/access';
-
+import { checkHost } from '../actions/filtering';
 import Dashboard from '../components/Dashboard';
 import { RootState } from '../initialState';
 
@@ -19,9 +19,11 @@ type DispatchProps = {
     getStats: (...args: unknown[]) => unknown;
     getStatsConfig: (...args: unknown[]) => unknown;
     getAccessList: () => (dispatch: any) => void;
+    checkHost: (...args: unknown[]) => unknown;
 }
 
 const mapDispatchToProps: DispatchProps = {
+    checkHost,
     toggleProtection,
     getClients,
     getStats,

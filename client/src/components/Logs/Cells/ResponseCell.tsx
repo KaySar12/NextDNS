@@ -80,7 +80,7 @@ const ResponseCell = ({
         install_settings_dns: upstream,
         ...(cached && {
             served_from_cache_label: (
-                <svg className="icons icon--20 icon--green mb-1">
+                <svg className="icons icon--20 icon--blue mb-1">
                     <use xlinkHref="#check" />
                 </svg>
             ),

@@ -17,7 +17,7 @@ interface ScheduleFormProps {
     clientForm?: boolean;
 }
 const defaultSchedule: ScheduleFormProps['schedule'] = {
-    time_zone: 'UTC'
+    time_zone: 'UTC',
 };
 export const ScheduleForm = ({ schedule = defaultSchedule, onScheduleSubmit, clientForm }: ScheduleFormProps) => {
     const [t] = useTranslation();
@@ -37,7 +37,6 @@ export const ScheduleForm = ({ schedule = defaultSchedule, onScheduleSubmit, cli
     };
 
     const onDelete = (day: any) => {
-        debugger
         scheduleMap.delete(day);
 
         const scheduleWeek = Object.fromEntries(Array.from(scheduleMap.entries()));
@@ -57,7 +56,6 @@ export const ScheduleForm = ({ schedule = defaultSchedule, onScheduleSubmit, cli
         setCurrentDay(undefined);
         onModalOpen();
     };
-    console.log("time_zone:", schedule?.time_zone)
     return (
         <div>
             <div className="schedule__current-timezone">

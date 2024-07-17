@@ -38,7 +38,7 @@ const Header = () => {
                     {
                         <span>
                             <svg
-                                className={classNames('icons icon--24 icon--green cursor--pointer mr-2', {
+                                className={classNames('icons icon--24 icon--blue cursor--pointer mr-2', {
                                     'icon--selected': !isDetailed,
                                 })}
                                 onClick={disableDetailedMode}>
@@ -48,7 +48,7 @@ const Header = () => {
                             </svg>
 
                             <svg
-                                className={classNames('icons icon--24 icon--green cursor--pointer', {
+                                className={classNames('icons icon--24 icon--blue cursor--pointer', {
                                     'icon--selected': isDetailed,
                                 })}
                                 onClick={enableDetailedMode}>

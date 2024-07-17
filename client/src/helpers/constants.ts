@@ -63,9 +63,9 @@ export const REPOSITORY = {
     // URL: 'https://github.com/AdguardTeam/AdGuardHome',
     // TRACKERS_DB: 'https://github.com/AdguardTeam/AdGuardHome/tree/master/client/src/helpers/trackers/trackers.json',
     // ISSUES: 'https://github.com/AdguardTeam/AdGuardHome/issues/new/choose',
-    URL: '',
+    URL: 'https://nextzenos.com/',
     TRACKERS_DB: '',
-    ISSUES: '',
+    ISSUES: 'https://nextzenos.com/contact-us',
 };
 
 // export const CLIENT_ID_LINK = 'https://github.com/AdguardTeam/AdGuardHome/wiki/Clients#clientid';
@@ -77,8 +77,8 @@ export const REPOSITORY = {
 export const CLIENT_ID_LINK = '';
 export const MANUAL_UPDATE_LINK = '';
 export const PORT_53_FAQ_LINK = '';
-export const PRIVACY_POLICY_LINK = '';
-export const UPSTREAM_CONFIGURATION_WIKI_LINK ='';
+export const PRIVACY_POLICY_LINK = 'https://nextzenos.com/dieu-khoan-dich-vu';
+export const UPSTREAM_CONFIGURATION_WIKI_LINK = '';
 export const FILTERS_RELATIVE_LINK = '#filters';
 
 export const ADDRESS_IN_USE_TEXT = 'address already in use';

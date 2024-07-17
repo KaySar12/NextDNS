@@ -249,7 +249,7 @@ const Row = memo(
                 install_settings_dns: upstream,
                 ...(cached && {
                     served_from_cache_label: (
-                        <svg className="icons icon--20 icon--green">
+                        <svg className="icons icon--20 icon--blue">
                             <use xlinkHref="#check" />
                         </svg>
                     ),

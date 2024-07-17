@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 import { HashLink as Link } from 'react-router-hash-link';
 import { Trans, useTranslation } from 'react-i18next';
 import classNames from 'classnames';
@@ -13,26 +12,20 @@ import { DISABLE_PROTECTION_TIMINGS, ONE_SECOND_IN_MS, SETTINGS_URLS, TIME_UNITS
 import { msToSeconds, msToMinutes, msToHours, msToDays } from '../../helpers/helpers';
 
 import PageTitle from '../ui/PageTitle';
-
 import Loading from '../ui/Loading';
 import './Dashboard.css';
 
 import Dropdown from '../ui/Dropdown';
 import UpstreamResponses from './UpstreamResponses';
-
 import UpstreamAvgTime from './UpstreamAvgTime';
-import { AccessData, DashboardData, RootState, StatsData } from '../../initialState';
-import Card from '../ui/Card';
-import { ScheduleForm } from '../Filters/Services/ScheduleForm';
-
-// eslint-disable-next-line import/order
-import { useDispatch, useSelector } from 'react-redux';
-import { updateBlockedServices } from '../../actions/services';
+import { AccessData, DashboardData, StatsData } from '../../initialState';
+import { NavLink } from 'react-router-dom';
 
 interface DashboardProps {
     dashboard: DashboardData;
     stats: StatsData;
     access: AccessData;
+    checkHost: (...args: unknown[]) => string;
     getStats: (...args: unknown[]) => unknown;
     getStatsConfig: (...args: unknown[]) => unknown;
     toggleProtection: (...args: unknown[]) => unknown;
@@ -42,6 +35,7 @@ interface DashboardProps {
 
 const Dashboard = ({
     getAccessList,
+    checkHost,
     getStats,
     getStatsConfig,
     dashboard: { protectionEnabled, processingProtection, protectionDisabledDuration },
@@ -50,7 +44,6 @@ const Dashboard = ({
     access,
 }: DashboardProps) => {
     const { t } = useTranslation();
-
     const getAllStats = () => {
         getAccessList();
         getStats();
@@ -145,53 +138,62 @@ const Dashboard = ({
 
         return hh ? `${formattedHH}:${mm}:${ss}` : `${mm}:${ss}`;
     };
-    // eslint-disable-next-line spaced-comment
-    /*update custom */
 
-    const services = useSelector((state: RootState) => state.services);
-    const dispatch = useDispatch();
-    const handleScheduleSubmit = (values: any) => {
-        dispatch(
-            updateBlockedServices({
-                ids: services.list.ids,
-                schedule: values,
-            }),
-        );
-    };
     const getProtectionBtnText = (status: any) => (status ? t('disable_protection') : t('enable_protection'));
-    console.log('services.list.schedule form' , services.list.schedule)
+
     return (
         <>
-            <PageTitle title={t('dashboard')} containerClass="page-title--dashboard">
-                <div className="page-title__protection">
-                    <button
-                        type="button"
-                        className={buttonClass}
-                        onClick={() => {
-                            toggleProtection(protectionEnabled);
-                        }}
-                        disabled={processingProtection}>
-                        {protectionDisabledDuration
-                            ? `${t('enable_protection_timer')} ${getRemaningTimeText(protectionDisabledDuration)}`
-                            : getProtectionBtnText(protectionEnabled)}
+            <div className="page-flex page-margin-bottom">
+                <PageTitle title={t('dashboard')} containerClass="page-title--dashboard">
+                    <div className="page-title__protection">
+                        <button
+                            type="button"
+                            className={buttonClass}
+                            onClick={() => {
+                                toggleProtection(protectionEnabled);
+                            }}
+                            disabled={processingProtection}>
+                            {protectionDisabledDuration
+                                ? `${t('enable_protection_timer')} ${getRemaningTimeText(protectionDisabledDuration)}`
+                                : getProtectionBtnText(protectionEnabled)}
+                        </button>
+
+                        {protectionEnabled && (
+                            <Dropdown
+                                label=""
+                                baseClassName="dropdown-protection"
+                                icon="arrow-down"
+                                controlClassName="dropdown-protection__toggle"
+                                menuClassName="dropdown-menu dropdown-menu-arrow dropdown-menu--protection">
+                                {getDisableProtectionItems()}
+                            </Dropdown>
+                        )}
+                    </div>
+                    <button type="button" className="btn btn-outline-primary btn-sm" onClick={getAllStats}>
+                        <Trans>refresh_statics</Trans>
                     </button>
-
-                    {protectionEnabled && (
-                        <Dropdown
-                            label=""
-                            baseClassName="dropdown-protection"
-                            icon="arrow-down"
-                            controlClassName="dropdown-protection__toggle"
-                            menuClassName="dropdown-menu dropdown-menu-arrow dropdown-menu--protection">
-                            {getDisableProtectionItems()}
-                        </Dropdown>
-                    )}
-                </div>
-
-                <button type="button" className="btn btn-outline-primary btn-sm" onClick={getAllStats}>
-                    <Trans>refresh_statics</Trans>
-                </button>
-            </PageTitle>
+                    <NavLink to={'/custom_rules'} key={'/custom_rules'} exact={true || false} className={`order-2`}>
+                        <button type="button" className="btn btn-success btn-standard btn-sm">
+                            Chặn tên miền nhanh
+                        </button>
+                    </NavLink>
+                    <NavLink
+                        to={'/blocked_services'}
+                        key={'/blocked_services'}
+                        exact={true || false}
+                        className={`order-2`}>
+                        <button type="button" className="btn btn-success btn-standard btn-sm">
+                            Chặn dịch vụ nhanh
+                        </button>
+                    </NavLink>
+                    <NavLink to={'/clients'} key={'/clients'} exact={true || false} className={`order-2`}>
+                        <button type="button" className="btn btn-success btn-standard btn-sm">
+                            Chặn theo thiết bị
+                        </button>
+                    </NavLink>
+                </PageTitle>
+                <div className="page-flex"></div>
+            </div>
 
             {statsProcessing && <Loading />}
 
@@ -223,15 +225,8 @@ const Dashboard = ({
                             numReplacedParental={stats.numReplacedParental}
                             refreshButton={refreshButton}
                         />
-                        <Card
-                        title={t('schedule_services')}
-                        subtitle={t('schedule_services_desc')}
-                        bodyType="card-body box-body--settings">
-                        <ScheduleForm schedule={services.list.schedule } 
-                        onScheduleSubmit={handleScheduleSubmit} />
-                    </Card>
                     </div>
-                    
+
                     <div className="col-lg-6">
                         <Counters subtitle={subtitle} refreshButton={refreshButton} />
                     </div>

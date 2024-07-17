@@ -65,10 +65,7 @@ const Footer = () => {
         <div className="footer__column">
             <div className="footer__copyright">
                 {t('copyright')} &copy; {getYear()}{' '}
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="">
+                <a target="_blank" rel="noopener noreferrer" href="">
                     NEXTDNS
                 </a>
             </div>
