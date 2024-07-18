@@ -18,7 +18,7 @@ import Form from './Form';
 import './Login.css';
 import '../../components/ui/Tabler.css';
 
-import logo2 from '../../../public/assets/apple-touch-icon-180x180.png'
+import { LogoSvg } from '../../components/ui/svg/LogoSvg';
 
 type LoginProps = {
     login: {
@@ -54,7 +54,7 @@ class Login extends Component<LoginProps, LoginState> {
             <div className="login">
                 <div className="login__form">
                     <div className="text-center mb-6">
-                        {/* <Logo /> */}
+                        <LogoSvg className="login__logo" />
                     </div>
                     <Form onSubmit={this.handleSubmit} processing={processingLogin} />
 
@@ -66,11 +66,7 @@ class Login extends Component<LoginProps, LoginState> {
                             <div className="login__message">
                                 <Trans
                                     components={[
-                                        <a
-                                            href="t"
-                                            key="0"
-                                            target="_blank"
-                                            rel="noopener noreferrer">
+                                        <a href="t" key="0" target="_blank" rel="noopener noreferrer">
                                             link
                                         </a>,
                                     ]}>

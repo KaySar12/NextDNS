@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import { merge } from 'webpack-merge';
 import yaml from 'js-yaml';
 import fs from 'fs';

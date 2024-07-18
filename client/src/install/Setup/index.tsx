@@ -31,6 +31,7 @@ import { Logo } from '../../components/ui/svg/logo';
 
 import './Setup.css';
 import '../../components/ui/Tabler.css';
+import { LogoSvg } from '../../components/ui/svg/LogoSvg';
 
 interface SetupProps {
     getDefaultAddresses: (...args: unknown[]) => unknown;
@@ -132,7 +133,7 @@ class Setup extends Component<SetupProps> {
                     <Fragment>
                         <div className="setup">
                             <div className="setup__container">
-                                <Logo className="setup__logo" />
+                                <LogoSvg className="setup__logo" />
                                 {this.renderPage(step, { web, dns, staticIp }, interfaces)}
                                 <Progress step={step} />
                             </div>

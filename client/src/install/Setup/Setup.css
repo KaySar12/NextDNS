@@ -45,6 +45,7 @@
     display: block;
     margin: 0 auto 40px;
     max-width: 140px;
+    height: 30px;
 }
 
 [data-theme='dark'] .setup__logo {

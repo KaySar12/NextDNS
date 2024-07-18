@@ -13,8 +13,12 @@
     justify-content: space-between;
     align-items: stretch;
     min-height: 100vh;
+    /* background: url('../Login/default-background.jpg') no-repeat center center;
+    background-size: cover; */
 }
-
+.login__logo{
+    height: 30px;
+}
 [data-theme='dark'] .login__logo {
     filter: invert(1);
 }

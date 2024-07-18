@@ -64,7 +64,7 @@ class CustomRules extends Component<CustomRulesProps> {
             <>
                 <PageTitle title={t('custom_filtering_rules')} />
                 <Check onSubmit={this.handleCheck} />
-                <Card subtitle={t('custom_filter_rules_hint')}>
+                <Card title={'Chặn nâng cao'} subtitle={t('custom_filter_rules_hint')}>
                     <form onSubmit={this.handleSubmit}>
                         <div className="text-edit-container mb-4">
                             <textarea
