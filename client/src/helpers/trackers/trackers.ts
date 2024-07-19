@@ -71,7 +71,7 @@ export const getSourceData = (trackerData: any) => {
  * @returns {number} source number
  */
 const convertSource = (sourceStr: any) => {
-    if (!sourceStr || sourceStr !== 'AdGuard') {
+    if (!sourceStr || sourceStr !== 'NextDNS') {
         return sources.WHOTRACKSME;
     }
 
