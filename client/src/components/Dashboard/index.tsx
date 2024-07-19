@@ -174,7 +174,7 @@ const Dashboard = ({
                     </button>
                     <NavLink to={'/custom_rules'} key={'/custom_rules'} exact={true || false} className={`order-2`}>
                         <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
-                            Chặn tên miền nhanh
+                            <Trans>check_title</Trans>
                         </button>
                     </NavLink>
                     <NavLink
@@ -183,17 +183,17 @@ const Dashboard = ({
                         exact={true || false}
                         className={`order-2`}>
                         <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
-                            Chặn dịch vụ nhanh
+                            <Trans>block_fast_service</Trans>
                         </button>
                     </NavLink>
                     <NavLink to={'/clients'} key={'/clients'} exact={true || false} className={`order-2`}>
                         <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
-                            Chặn theo thiết bị
+                            <Trans>block_by_device</Trans>
                         </button>
                     </NavLink>
                     <NavLink to={'/settings'} key={'/settings'} exact={true || false} className={`order-2`}>
                         <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
-                            Chế độ an toàn
+                            <Trans>safe_mode</Trans>
                         </button>
                     </NavLink>
                 </PageTitle>

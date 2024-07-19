@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { Field, reduxForm } from 'redux-form';
 import { useSelector } from 'react-redux';
@@ -32,6 +32,10 @@ const Check = (props: CheckProps) => {
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-12 col-md-6 input-dashboard" style={{ maxWidth: '100%', flexBasis: '100%' }}>
+                        <div>
+                            <Trans>check_desc</Trans>
+                        </div>
+                        <br />
                         <div className="input-group">
                             {
                                 <Field
@@ -43,7 +47,6 @@ const Check = (props: CheckProps) => {
                                     placeholder={t('form_enter_host')}
                                 />
                             }
-
                             <span className="input-group-append">
                                 <button
                                     className="btn btn-success btn-standard btn-large"
