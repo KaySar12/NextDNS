@@ -34,6 +34,7 @@ Dashboard UI
     --success: #f1c40f;
     --info: #45aaf2;
     --warning: #5eba00;
+    --success-primary: #5eba00;
     --danger: #cd201f;
     --light: #f8f9fa;
     --dark: #343a40;
@@ -13429,7 +13430,7 @@ a.icon:hover {
     padding: 0.5rem 1.5rem;
     display: -ms-flexbox;
     display: flex;
-    min-height: 3.5rem;
+    min-height: 2.5rem;
     -ms-flex-align: center;
     align-items: center;
 }

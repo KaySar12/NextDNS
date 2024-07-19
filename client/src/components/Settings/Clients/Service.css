@@ -75,12 +75,12 @@
 }
 
 .custom-switch-input:checked ~ .service__switch {
-    background-color: var(--primary-dark-blue-web);
+    background-color: var(--success-primary);
 }
 
 .custom-switch-input:focus ~ .service__switch {
-    box-shadow: 0 0 0 1px var(--primary-dark-blue-web);
-    border-color: var(--primary-dark-blue-web);
+    box-shadow: 0 0 0 1px var(--success-primary);
+    border-color: var(--success-primary);
 }
 
 .custom-switch-input:disabled ~ .service__switch,
