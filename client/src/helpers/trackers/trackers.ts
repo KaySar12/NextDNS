@@ -18,7 +18,7 @@ import { REPOSITORY } from '../constants';
  */
 export const sources = {
     WHOTRACKSME: 1,
-    ADGUARD: 2,
+    NEXTDNS: 2,
 };
 
 /**
@@ -54,9 +54,9 @@ export const getSourceData = (trackerData: any) => {
             url: getWhotracksmeUrl(trackerData.id),
         };
     }
-    if (trackerData.source === sources.ADGUARD) {
+    if (trackerData.source === sources.NEXTDNS) {
         return {
-            name: 'AdGuard',
+            name: 'NextDNS',
             url: REPOSITORY.TRACKERS_DB,
         };
     }
@@ -75,7 +75,7 @@ const convertSource = (sourceStr: any) => {
         return sources.WHOTRACKSME;
     }
 
-    return sources.ADGUARD;
+    return sources.NEXTDNS;
 };
 
 /**

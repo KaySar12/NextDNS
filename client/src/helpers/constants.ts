@@ -64,7 +64,7 @@ export const REPOSITORY = {
     // TRACKERS_DB: 'https://github.com/AdguardTeam/AdGuardHome/tree/master/client/src/helpers/trackers/trackers.json',
     // ISSUES: 'https://github.com/AdguardTeam/AdGuardHome/issues/new/choose',
     URL: 'https://nextzenos.com/',
-    TRACKERS_DB: '',
+    TRACKERS_DB: 'https://nextzenos.com/',
     ISSUES: 'https://nextzenos.com/contact-us',
 };
 
