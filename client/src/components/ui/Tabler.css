@@ -10275,12 +10275,21 @@ body.fixed-header .page {
 .page-title__protection {
     display: flex;
     align-items: stretch;
-    margin: 0 0.5rem;
+    /* margin: 0 0.5rem; */
 }
 
 @media (max-width: 767.98px) {
     .page-title__protection {
-        margin: 0.5rem 0;
+        /* margin: 0.5rem 0; */
+    }
+    .page-title__protection{
+        position: relative;
+    }
+    .dropdown-protection {
+        position: absolute !important;
+        height: 25px;
+        z-index: 99;
+        right: 0;
     }
 }
 

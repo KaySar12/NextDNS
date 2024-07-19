@@ -59,6 +59,12 @@
         flex-direction: column;
         align-items: flex-start;
     }
+    .btn-header{
+        min-width: 46vw;
+    }
+    /* .btn{
+        min-width: 11rem;
+    } */
 }
 
 .counters__row {
@@ -75,7 +81,18 @@
     text-align: right;
     white-space: nowrap;
 }
-
+.flex-button-dashboard {
+    display: flex;
+    gap: 10px;
+}
+@media screen and  (max-width: 767.98px)
+{
+    .flex-button-dashboard {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px; 
+      }
+}
 @media screen and (min-width: 768px) {
     .counters__column {
         display: flex;

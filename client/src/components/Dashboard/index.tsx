@@ -3,6 +3,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 import { Trans, useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
+import { NavLink } from 'react-router-dom';
 import Statistics from './Statistics';
 import Counters from './Counters';
 import Clients from './Clients';
@@ -19,13 +20,11 @@ import Dropdown from '../ui/Dropdown';
 import UpstreamResponses from './UpstreamResponses';
 import UpstreamAvgTime from './UpstreamAvgTime';
 import { AccessData, DashboardData, StatsData } from '../../initialState';
-import { NavLink } from 'react-router-dom';
 
 interface DashboardProps {
     dashboard: DashboardData;
     stats: StatsData;
     access: AccessData;
-    checkHost: (...args: unknown[]) => string;
     getStats: (...args: unknown[]) => unknown;
     getStatsConfig: (...args: unknown[]) => unknown;
     toggleProtection: (...args: unknown[]) => unknown;
@@ -35,7 +34,6 @@ interface DashboardProps {
 
 const Dashboard = ({
     getAccessList,
-    checkHost,
     getStats,
     getStatsConfig,
     dashboard: { protectionEnabled, processingProtection, protectionDisabledDuration },
@@ -69,7 +67,7 @@ const Dashboard = ({
             : t('for_last_days', { count: msToDays(stats.interval) });
     };
 
-    const buttonClass = classNames('btn btn-sm dashboard-protection-button', {
+    const buttonClass = classNames('btn btn-header btn-sm dashboard-protection-button', {
         'btn-gray': protectionEnabled,
         'btn-success': !protectionEnabled,
     });
@@ -145,57 +143,62 @@ const Dashboard = ({
         <>
             <div className="page-flex page-margin-bottom">
                 <PageTitle title={t('dashboard')} containerClass="page-title--dashboard">
-                    <div className="page-title__protection">
+                    <div className="flex-button-dashboard">
+                        <div className="page-title__protection">
+                            <button
+                                type="button"
+                                className={buttonClass}
+                                onClick={() => {
+                                    toggleProtection(protectionEnabled);
+                                }}
+                                disabled={processingProtection}>
+                                {protectionDisabledDuration
+                                    ? `${t('enable_protection_timer')} ${getRemaningTimeText(protectionDisabledDuration)}`
+                                    : getProtectionBtnText(protectionEnabled)}
+                            </button>
+
+                            {protectionEnabled && (
+                                <Dropdown
+                                    label=""
+                                    baseClassName="dropdown-protection"
+                                    icon="arrow-down"
+                                    controlClassName="dropdown-protection__toggle"
+                                    menuClassName="dropdown-menu dropdown-menu-arrow dropdown-menu--protection">
+                                    {getDisableProtectionItems()}
+                                </Dropdown>
+                            )}
+                        </div>
                         <button
                             type="button"
-                            className={buttonClass}
-                            onClick={() => {
-                                toggleProtection(protectionEnabled);
-                            }}
-                            disabled={processingProtection}>
-                            {protectionDisabledDuration
-                                ? `${t('enable_protection_timer')} ${getRemaningTimeText(protectionDisabledDuration)}`
-                                : getProtectionBtnText(protectionEnabled)}
+                            className="btn btn-outline-primary btn-header btn-sm"
+                            onClick={getAllStats}>
+                            <Trans>refresh_statics</Trans>
                         </button>
-
-                        {protectionEnabled && (
-                            <Dropdown
-                                label=""
-                                baseClassName="dropdown-protection"
-                                icon="arrow-down"
-                                controlClassName="dropdown-protection__toggle"
-                                menuClassName="dropdown-menu dropdown-menu-arrow dropdown-menu--protection">
-                                {getDisableProtectionItems()}
-                            </Dropdown>
-                        )}
+                        <NavLink to={'/custom_rules'} key={'/custom_rules'} exact={true || false} className={`order-2`}>
+                            <button type="button" className="btn btn-outline-primary btn-header btn-standard btn-sm">
+                                <Trans>check_title</Trans>
+                            </button>
+                        </NavLink>
+                        <NavLink
+                            to={'/blocked_services'}
+                            key={'/blocked_services'}
+                            exact={true || false}
+                            className={`order-2`}>
+                            <button type="button" className="btn btn-outline-primary btn-header btn-standard btn-sm">
+                                <Trans>block_fast_service</Trans>
+                            </button>
+                        </NavLink>
+                        <NavLink to={'/clients'} key={'/clients'} exact={true || false} className={`order-2`}>
+                            <button type="button" className="btn btn-outline-primary btn-header btn-standard btn-sm">
+                                <Trans>block_by_device</Trans>
+                            </button>
+                        </NavLink>
+                        <NavLink to={'/settings'} key={'/settings'} exact={true || false} className={`order-2`}>
+                            <button type="button" className="btn btn-outline-primary btn-header btn-standard btn-sm">
+                                <Trans>safe_mode</Trans>
+                            </button>
+                        </NavLink>
                     </div>
-                    <button type="button" className="btn btn-outline-primary btn-sm" onClick={getAllStats}>
-                        <Trans>refresh_statics</Trans>
-                    </button>
-                    <NavLink to={'/custom_rules'} key={'/custom_rules'} exact={true || false} className={`order-2`}>
-                        <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
-                            <Trans>check_title</Trans>
-                        </button>
-                    </NavLink>
-                    <NavLink
-                        to={'/blocked_services'}
-                        key={'/blocked_services'}
-                        exact={true || false}
-                        className={`order-2`}>
-                        <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
-                            <Trans>block_fast_service</Trans>
-                        </button>
-                    </NavLink>
-                    <NavLink to={'/clients'} key={'/clients'} exact={true || false} className={`order-2`}>
-                        <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
-                            <Trans>block_by_device</Trans>
-                        </button>
-                    </NavLink>
-                    <NavLink to={'/settings'} key={'/settings'} exact={true || false} className={`order-2`}>
-                        <button type="button" className="btn btn-outline-primary btn-standard btn-sm">
-                            <Trans>safe_mode</Trans>
-                        </button>
-                    </NavLink>
                 </PageTitle>
                 <div className="page-flex"></div>
             </div>
