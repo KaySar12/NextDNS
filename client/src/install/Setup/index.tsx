@@ -53,21 +53,26 @@ interface SetupProps {
 }
 
 class Setup extends Component<SetupProps> {
+    state = {
+        formValues: {},
+    };
     componentDidMount() {
         this.props.getDefaultAddresses();
     }
 
     handleFormSubmit = (values: any) => {
+        debugger;
         const { staticIp, ...config } = values;
-
         this.props.setAllSettings(config);
     };
 
     handleFormChange = debounce((values) => {
+        debugger;
         const { web, dns } = values;
         if (values && web.port && dns.port) {
             this.props.checkConfig({ web, dns, set_static_ip: false });
         }
+        this.setState({ formValues: values });
     }, DEBOUNCE_TIMEOUT);
 
     handleFix = (web: any, dns: any, set_static_ip: any) => {
@@ -95,9 +100,42 @@ class Setup extends Component<SetupProps> {
             this.props.prevStep();
         }
     };
+    updateConfigWithFormValues(formValues: any, config: any): any {
+        Object.keys(formValues).forEach(key => {
+            if (key === 'web' || key === 'dns') {
+                config[key] = { ...config[key], ...formValues[key] };
+            }
+        });
 
-    renderPage(step: any, config: any, interfaces: any) {
+        return config;
+    };
+    renderPage(step: any, config: any, interfaces: any, values?: any) {
         switch (step) {
+            // case 1:
+            //     return <Greeting />;
+            // case 2:
+            //     return (
+            //         <Settings
+            //             config={config}
+            //             initialValues={config}
+            //             interfaces={interfaces}
+            //             onSubmit={this.nextStep}
+            //             onChange={this.handleFormChange}
+            //             validateForm={this.handleFormChange}
+            //             handleFix={this.handleFix}
+            //         />
+            //     );
+            // case 3:
+            //     config.username = "nextzen";
+            //     config.password = "smartyourlife"
+            //     const updatedConfig = this.updateConfigWithFormValues(this.state.formValues, config);
+            //     this.props.setAllSettings(updatedConfig);
+            //     return <Devices interfaces={interfaces} />;
+            // case 4:
+            //     return <Submit openDashboard={this.openDashboard} />;
+            // // case 5:
+            // default:
+            //     return false;
             case 1:
                 return <Greeting />;
             case 2:
@@ -106,18 +144,19 @@ class Setup extends Component<SetupProps> {
                         config={config}
                         initialValues={config}
                         interfaces={interfaces}
-                        onSubmit={this.nextStep}
+                        onSubmit={this.handleFormSubmit}
                         onChange={this.handleFormChange}
                         validateForm={this.handleFormChange}
                         handleFix={this.handleFix}
                     />
                 );
             case 3:
-                return <Auth onSubmit={this.handleFormSubmit} />;
-            case 4:
+
+                // return <Auth onSubmit={this.handleFormSubmit} />;
                 return <Devices interfaces={interfaces} />;
-            case 5:
+            case 4:
                 return <Submit openDashboard={this.openDashboard} />;
+            // case 5:
             default:
                 return false;
         }

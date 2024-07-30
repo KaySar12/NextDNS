@@ -25,10 +25,10 @@ export const setAllSettingsFailure = createAction('SET_ALL_SETTINGS_FAILURE');
 export const setAllSettingsSuccess = createAction('SET_ALL_SETTINGS_SUCCESS');
 
 export const setAllSettings = (values: any) => async (dispatch: any) => {
+    debugger;
     dispatch(setAllSettingsRequest());
     try {
-        const { confirm_password, ...config } = values;
-
+        const {...config } = values;
         await apiClient.setAllSettings(config);
         dispatch(setAllSettingsSuccess());
         dispatch(addSuccessToast('install_saved'));

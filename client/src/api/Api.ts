@@ -368,6 +368,7 @@ class Api {
     }
 
     setAllSettings(config: any) {
+        debugger;
         const { path, method } = this.INSTALL_CONFIGURE;
         const parameters = {
             data: config,

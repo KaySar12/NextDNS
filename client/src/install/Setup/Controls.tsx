@@ -66,7 +66,6 @@ class Controls extends Component<ControlsProps> {
                     </button>
                 );
             case 2:
-            case 3:
                 return (
                     <button
                         type="submit"
@@ -75,13 +74,13 @@ class Controls extends Component<ControlsProps> {
                         <Trans>next</Trans>
                     </button>
                 );
-            case 4:
+            case 3:
                 return (
                     <button type="button" className="btn btn-success btn-lg setup__button" onClick={nextStep}>
                         <Trans>next</Trans>
                     </button>
                 );
-            case 5:
+            case 4:
                 return (
                     <button
                         type="button"
@@ -90,6 +89,8 @@ class Controls extends Component<ControlsProps> {
                         <Trans>open_dashboard</Trans>
                     </button>
                 );
+            // case 5:
+
             default:
                 return false;
         }

@@ -84,7 +84,7 @@ export const FILTERS_RELATIVE_LINK = '#filters';
 export const ADDRESS_IN_USE_TEXT = 'address already in use';
 
 export const INSTALL_FIRST_STEP = 1;
-export const INSTALL_TOTAL_STEPS = 5;
+export const INSTALL_TOTAL_STEPS = 4;
 
 export const SETTINGS_NAMES = {
     filtering: 'filtering',

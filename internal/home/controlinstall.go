@@ -12,7 +12,6 @@ import (
 	"path/filepath"
 	"runtime"
 	"time"
-	"unicode/utf8"
 
 	"github.com/AdguardTeam/AdGuardHome/internal/aghalg"
 	"github.com/AdguardTeam/AdGuardHome/internal/aghhttp"
@@ -383,17 +382,17 @@ func (web *webAPI) handleInstallConfigure(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	if utf8.RuneCountInString(req.Password) < PasswordMinRunes {
-		aghhttp.Error(
-			r,
-			w,
-			http.StatusUnprocessableEntity,
-			"password must be at least %d symbols long",
-			PasswordMinRunes,
-		)
+	// if utf8.RuneCountInString(req.Password) < PasswordMinRunes {
+	// 	aghhttp.Error(
+	// 		r,
+	// 		w,
+	// 		http.StatusUnprocessableEntity,
+	// 		"password must be at least %d symbols long",
+	// 		PasswordMinRunes,
+	// 	)
 
-		return
-	}
+	// 	return
+	// }
 
 	err = aghnet.CheckPort("udp", netip.AddrPortFrom(req.DNS.IP, req.DNS.Port))
 	if err != nil {
@@ -417,17 +416,17 @@ func (web *webAPI) handleInstallConfigure(w http.ResponseWriter, r *http.Request
 	config.DNS.BindHosts = []netip.Addr{req.DNS.IP}
 	config.DNS.Port = req.DNS.Port
 
-	u := &webUser{
-		Name: req.Username,
-	}
-	err = Context.auth.addUser(u, req.Password)
-	if err != nil {
-		Context.firstRun = true
-		copyInstallSettings(config, curConfig)
-		aghhttp.Error(r, w, http.StatusUnprocessableEntity, "%s", err)
+	// u := &webUser{
+	// 	Name: req.Username,
+	// }
+	// err = Context.auth.addUser(u, req.Password)
+	// if err != nil {
+	// 	Context.firstRun = true
+	// 	copyInstallSettings(config, curConfig)
+	// 	aghhttp.Error(r, w, http.StatusUnprocessableEntity, "%s", err)
 
-		return
-	}
+	// 	return
+	// }
 
 	// TODO(e.burkov): StartMods() should be put in a separate goroutine at the
 	// moment we'll allow setting up TLS in the initial configuration or the

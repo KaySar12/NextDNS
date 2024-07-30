@@ -38,8 +38,8 @@ interface AuthProps {
 }
 
 const Auth = (props: AuthProps) => {
+    debugger;
     const { handleSubmit, pristine, invalid, t } = props;
-
     return (
         <form className="setup__step" onSubmit={handleSubmit}>
             <div className="setup__group">

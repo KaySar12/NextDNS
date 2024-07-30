@@ -381,13 +381,14 @@ func (a *Auth) getCurrentUser(r *http.Request) (u webUser) {
 
 // usersList returns a copy of a users list.
 func (a *Auth) usersList() (users []webUser) {
-	a.lock.Lock()
-	defer a.lock.Unlock()
+	// a.lock.Lock()
+	// defer a.lock.Unlock()
 
-	users = make([]webUser, len(a.users))
-	copy(users, a.users)
+	// users = make([]webUser, len(a.users))
+	// copy(users, a.users)
 
-	return users
+	// return users
+	return []webUser{}
 }
 
 // authRequired returns true if a authentication is required.
