@@ -5,14 +5,19 @@ import { shallowEqual, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 
-import Menu from './Menu';
+// import Menu from './Menu';
 
 import { Logo } from '../ui/svg/logo';
 import './Header.css';
 import { RootState } from '../../initialState';
 
-const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+interface ChildProps {
+    handleMenuOpenTab: (data: boolean) => void;
+    isMenuOpenTab: boolean;
+}
+const Header: React.FC<ChildProps> = ({ isMenuOpenTab, handleMenuOpenTab }) => {
+
+    // const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { t } = useTranslation();
 
     const { protectionEnabled, processing, isCoreRunning, processingProfile, name } = useSelector(
@@ -20,15 +25,16 @@ const Header = () => {
         shallowEqual,
     );
 
-    const { pathname } = useLocation();
+    // const { pathname } = useLocation();
 
     const toggleMenuOpen = () => {
-        setIsMenuOpen((isMenuOpen) => !isMenuOpen);
+        // setIsMenuOpen((isMenuOpen) => !isMenuOpen);
+        handleMenuOpenTab(!isMenuOpenTab);
     };
 
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-    };
+    // const closeMenu = () => {
+    //     setIsMenuOpen(false);
+    // };
 
     const badgeClass = classnames('badge dns-status', {
         'badge-success': protectionEnabled,
@@ -54,7 +60,7 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <Menu pathname={pathname} isMenuOpen={isMenuOpen} closeMenu={closeMenu} />
+                    {/* <Menu pathname={pathname} isMenuOpen={isMenuOpen} closeMenu={closeMenu} /> */}
 
                     <div className="header__column">
                         <div className="header__right">

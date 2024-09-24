@@ -39,6 +39,7 @@ Dashboard UI
     --light: #f8f9fa;
     --dark: #343a40;
     --primary-yellow-web: #e4aa24;
+    --primary-blue-os: #467fcf;
     --primary-dark-blue-web: #162951;
     --primary-blue-web: #194299;
     --breakpoint-xs: 0;
@@ -199,7 +200,7 @@ a {
 }
 
 a:hover {
-    color: var(--primary-yellow-web);
+    color: var(--primary-blue-os);
     text-decoration: underline;
 }
 
@@ -3277,6 +3278,7 @@ tbody.collapse.show {
 .dropup,
 .dropdown {
     position: relative;
+    flex-grow: 1;
 }
 
 .dropdown-toggle::after {
@@ -3314,6 +3316,9 @@ tbody.collapse.show {
     background-clip: padding-box;
     border: 1px solid rgba(0, 40, 100, 0.12);
     border-radius: 3px;
+}
+.dropdown-menu-tab{
+    display: none;
 }
 
 [data-theme='dark'] .dropdown-menu {
@@ -3413,9 +3418,16 @@ tbody.collapse.show {
 }
 
 .dropdown-item {
+    display: -webkit-box; /* Sử dụng box model của WebKit */
+    -webkit-box-orient: vertical; /* Định hướng theo chiều dọc */
+    -webkit-line-clamp: 1; /* Giới hạn số dòng hiển thị */
+    overflow: hidden; /* Ẩn phần chữ thừa */
+    text-overflow: ellipsis; /* Hiển thị dấu ba chấm */
+    max-width: 180px; /* Thiết lập chiều rộng tối đa */
+    white-space: normal; /* Cho phép xuống dòng */
     display: block;
     width: 100%;
-    padding: 0.25rem 1.5rem;
+    padding: 0.25rem 1rem;
     clear: both;
     font-weight: 400;
     color: var(--ctrl-dropdown-color);
@@ -3429,7 +3441,7 @@ tbody.collapse.show {
 .dropdown-item:focus {
     color: var(--ctrl-dropdown-color-focus);
     text-decoration: none;
-    background-color: var(--ctrl-dropdown-bgcolor-focus);
+    background-color: rgba(var(--btn-success-bgcolor), 0.5);
 }
 
 .dropdown-item.active,
@@ -3447,6 +3459,13 @@ tbody.collapse.show {
 
 .dropdown-menu.show {
     display: block;
+}
+.dropdown-menu-tab.show {
+    display: block;
+    overflow: hidden;
+    max-height: 300px;
+    display: block;
+    overflow-y: scroll;
 }
 
 .dropdown-header {
@@ -4014,6 +4033,7 @@ tbody.collapse.show {
 
 .nav-tabs .nav-item {
     margin-bottom: -1px;
+    
 }
 
 .nav-tabs .nav-link {
@@ -11863,7 +11883,8 @@ a.icon:hover {
     -ms-user-select: none;
     user-select: none;
     /* color: #9aa0ac; */
-    color: #ffffff;
+    /* color: #000; */
+    color: var(--black);
     margin: 0 -0.75rem;
 }
 
@@ -11878,8 +11899,8 @@ a.icon:hover {
 }
 
 .nav-tabs .nav-link:hover:not(.disabled) {
-    border-color:var(--primary-yellow-web) ;
-    color: var(--primary-yellow-web);
+    border-color:var(--primary-blue-os) ;
+    color: var(--primary-blue-os);
 }
 
 .nav-tabs .nav-link.active {
@@ -11895,6 +11916,12 @@ a.icon:hover {
 }
 
 .nav-tabs .nav-item {
+    /* display: -webkit-box; 
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 190px;  */
     margin-bottom: 0;
     position: relative;
 }

@@ -354,7 +354,7 @@ export default {
         },
         "nextdns_adblock_1": {
             "name": "NextDNS adblock Part1",
-            "categoryId": "other",
+            "categoryId": "general",
             "homepage": "https://github.com/crazy-max/WindowsSpyBlocker",
             "source": "https://dl.nextzenos.com/firewall/NextDNS/adblock-part1.txt"
         },

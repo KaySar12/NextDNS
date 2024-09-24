@@ -420,7 +420,9 @@
 .logs__loading {
     padding: 1rem 0;
 }
-
+.logs__loading:hover {
+    background-color: #f0f0f0; 
+}
 .logs__table {
     background-color: var(--logs__table-bgcolor);
     border: 0;

@@ -144,7 +144,7 @@ const Dashboard = ({
             <div className="page-flex page-margin-bottom">
                 <PageTitle title={t('dashboard')} containerClass="page-title--dashboard">
                     <div className="flex-button-dashboard">
-                        <div className="page-title__protection">
+                        <div className="page-title__protection card--shadow">
                             <button
                                 type="button"
                                 className={buttonClass}
@@ -170,11 +170,11 @@ const Dashboard = ({
                         </div>
                         <button
                             type="button"
-                            className="btn btn-outline-primary btn-header btn-sm"
+                            className="btn btn-outline-primary btn-header btn-sm card--shadow"
                             onClick={getAllStats}>
                             <Trans>refresh_statics</Trans>
                         </button>
-                        <NavLink to={'/custom_rules'} key={'/custom_rules'} exact={true || false} className={`order-2`}>
+                        <NavLink to={'/custom_rules'} key={'/custom_rules'} exact={true || false} className={`order-2 card--shadow`}>
                             <button type="button" className="btn btn-outline-primary btn-header btn-standard btn-sm">
                                 <Trans>check_title</Trans>
                             </button>
@@ -183,17 +183,17 @@ const Dashboard = ({
                             to={'/blocked_services'}
                             key={'/blocked_services'}
                             exact={true || false}
-                            className={`order-2`}>
+                            className={`order-2 card--shadow`}>
                             <button type="button" className="btn btn-outline-primary btn-header btn-standard btn-sm">
                                 <Trans>block_fast_service</Trans>
                             </button>
                         </NavLink>
-                        <NavLink to={'/clients'} key={'/clients'} exact={true || false} className={`order-2`}>
+                        <NavLink to={'/clients'} key={'/clients'} exact={true || false} className={`order-2 card--shadow`}>
                             <button type="button" className="btn btn-outline-primary btn-header btn-standard btn-sm">
                                 <Trans>block_by_device</Trans>
                             </button>
                         </NavLink>
-                        <NavLink to={'/settings'} key={'/settings'} exact={true || false} className={`order-2`}>
+                        <NavLink to={'/settings'} key={'/settings'} exact={true || false} className={`order-2 card--shadow`}>
                             <button type="button" className="btn btn-outline-primary btn-header btn-standard btn-sm">
                                 <Trans>safe_mode</Trans>
                             </button>

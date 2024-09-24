@@ -55,7 +55,7 @@
 
     .footer__column--language {
         min-width: initial;
-        margin-left: 20px;
+        /* margin-left: 20px; */
     }
 
     .footer__column--theme {

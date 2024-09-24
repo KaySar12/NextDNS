@@ -153,9 +153,7 @@ const Footer = () => {
                         </div> */}
                     </div>
                 </div>
-            </footer>
-
-            <div className="footer">
+                <div className="footer">
                 <div className="container">
                     <div className="footer__row">
                         {renderCopyright()}
@@ -166,6 +164,9 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            </footer>
+
+            
         </>
     );
 };

@@ -261,6 +261,7 @@
     "previous_btn": "Trước",
     "next_btn": "Trang sau",
     "loading_table_status": "Đang tải...",
+    "load_table_status": "Tải thêm...",
     "page_table_footer_text": "Trang",
     "rows_table_footer_text": "hàng",
     "updated_custom_filtering_toast": "Đã cập nhật quy tắc lọc tuỳ chỉnh",

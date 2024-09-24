@@ -479,6 +479,59 @@ const Icons = () => (
             strokeLinejoin="round">
             <path d="M5 11.7665L10.5878 17L19 8" />
         </symbol>
+        <symbol
+            id="language"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2">
+            <path d="M3 12h18M3 6h18M3 18h18" />
+            <path d="M9 6v12l3-3l3 3V6" />
+        </symbol>
+        <symbol
+            id="nos"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M8 12h8" />
+            <path d="M12 8v8" />
+            <path d="M10 10h4v4h-4z" />
+        </symbol>
+        <symbol
+            id="globe"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20" />
+            <path d="M12 2v20" />
+            <path d="M16 12c-1.1 0-2 .9-2 2s.9 2 2 2" />
+            <path d="M8 12c1.1 0 2-.9 2-2s-.9-2-2-2" />
+        </symbol>
+        <symbol
+        id="language-icon"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none">
+        <title>Language</title>
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12,22 C14.67,19.58 16,16.24 16,12 C16,7.76 14.67,4.42 12,2 C9.33,4.42 8,7.76 8,12 C8,16.24 9.33,19.58 12,22 Z"/>
+        <path d="M2.5 9L21.5 9M2.5 15L21.5 15"/>
+    </symbol>
+
+
     </svg>
 );
 

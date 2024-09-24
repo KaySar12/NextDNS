@@ -995,9 +995,8 @@ export const enrichWithConcatenatedIpAddresses = (interfaces: DhcpInterface[]) =
 
 export const isScrolledIntoView = (el: any) => {
     const rect = el.getBoundingClientRect();
-    const elemTop = rect.top;
+    const elemTop = rect.top ;
     const elemBottom = rect.bottom;
-
     return elemTop < window.innerHeight && elemBottom >= 0;
 };
 

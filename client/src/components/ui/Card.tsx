@@ -17,7 +17,7 @@ const Card = ({ type, id, title, subtitle, refresh, bodyType, children }: CardPr
     const { t } = useTranslation();
     const checkTitle = t('check_title');
     return (
-        <div className={type ? `card ${type}` : 'card'} id={id || ''}>
+        <div className={type ? `card ${type} card--shadow` : 'card card--shadow' } id={id || ''}>
             {(title || subtitle) && (
                 <div
                     className={` ${title === checkTitle ? 'card-header-color card-header-radius' : ''} card-header with-border`}>

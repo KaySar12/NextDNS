@@ -56,18 +56,17 @@ class Setup extends Component<SetupProps> {
     state = {
         formValues: {},
     };
+
     componentDidMount() {
         this.props.getDefaultAddresses();
     }
 
     handleFormSubmit = (values: any) => {
-        debugger;
-        const { staticIp, ...config } = values;
+        const { staticIp , ...config } = values;
         this.props.setAllSettings(config);
     };
 
     handleFormChange = debounce((values) => {
-        debugger;
         const { web, dns } = values;
         if (values && web.port && dns.port) {
             this.props.checkConfig({ web, dns, set_static_ip: false });

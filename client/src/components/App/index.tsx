@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { HashRouter, Route } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading-bar';
@@ -46,6 +46,7 @@ import Services from '../Filters/Services';
 import Logs from '../Logs';
 import ProtectionTimer from '../ProtectionTimer';
 import { RootState } from '../../initialState';
+import Sidebar from '../Header/Sidebar';
 
 const ROUTES = [
     {
@@ -187,6 +188,10 @@ const App = () => {
     const reloadPage = () => {
         window.location.reload();
     };
+    const [isMenuOpenTab, setIsMenuOpenTab] = useState(false);
+    const handleMenuOpenTab = (data: boolean) => {
+        setIsMenuOpenTab(data);
+    };
 
     return (
         <HashRouter hashType="noslash">
@@ -202,30 +207,36 @@ const App = () => {
 
             <LoadingBar className="loading-bar" updateTime={1000} />
 
-            <Header />
+            <Header handleMenuOpenTab={handleMenuOpenTab} isMenuOpenTab={isMenuOpenTab} />
 
             <ProtectionTimer />
 
-            <div className="container container--wrap pb-5 pt-5">
-                {processing && <Loading />}
+            <div style={{ display: 'flex' }}>
+                <Sidebar isMenuOpenTab={isMenuOpenTab} handleMenuOpenTab={handleMenuOpenTab} />
+                <div className='scroll-container'>
+                    <div className="container container--wrap pb-5 pt-5">
+                        {processing && <Loading />}
 
-                {!isCoreRunning && (
-                    <div className="row row-cards">
-                        <div className="col-lg-12">
-                            <Status reloadPage={reloadPage} message="dns_start" />
+                        {!isCoreRunning && (
+                            <div className="row row-cards">
+                                <div className="col-lg-12">
+                                    <Status reloadPage={reloadPage} message="dns_start" />
 
-                            <Loading />
-                        </div>
+                                    <Loading />
+                                </div>
+                            </div>
+                        )}
+                        {!processing &&
+                            isCoreRunning &&
+                            ROUTES.map((route, index) => (
+                                <Route key={index} exact={route.exact} path={route.path} component={route.component} />
+                            ))}
                     </div>
-                )}
-                {!processing &&
-                    isCoreRunning &&
-                    ROUTES.map((route, index) => (
-                        <Route key={index} exact={route.exact} path={route.path} component={route.component} />
-                    ))}
+                    <Footer />
+                </div>
             </div>
 
-            <Footer />
+           
 
             <Toasts />
 
