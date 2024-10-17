@@ -2,6 +2,8 @@
     border-color: var(--btn-success-bgcolor);
     color: var(--btn-success-bgcolor);
     background: transparent;
+    /* background: var(--primary-blue-os); */
+    
 }
 
 .nav-tabs .nav-link.active:hover {
@@ -29,7 +31,7 @@
 .nav-tabs .nav-link {
     width: 100%;
     border: 0;
-    padding: 20px 0;
+    /* padding: 20px 0; */
 }
 
 .header {
@@ -156,7 +158,7 @@
 
     .nav-tabs .nav-link {
         width: auto;
-        border-bottom: 1px solid transparent;
+        /* border-bottom: 1px solid transparent; */
         font-size: 13px;
         white-space: nowrap;
     }
