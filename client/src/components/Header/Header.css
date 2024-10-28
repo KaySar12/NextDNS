@@ -137,10 +137,9 @@
 .header__container {
     width: 100%;
     /* max-width: 1200px; */
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
     margin-right: auto;
     margin-left: auto;
+    padding: 0.75rem 0.75rem;
 }
 
 .header__column:last-child {

@@ -137,10 +137,10 @@ export default {
             "source": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_16.txt"
         },
         "adguard_dns_filter": {
-            "name": "AdGuard DNS filter",
+            "name": "NextZen DNS Filter",
             "categoryId": "general",
             "homepage": "https://github.com/AdguardTeam/AdGuardSDNSFilter",
-            "source": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt"
+            "source": "https://cdn.nextzenos.com/CDN/NextDNS/raw/branch/master/DNS_blocklists/NextZen_DNS_filter.txt"
         },
         "adguard_popup_filter": {
             "name": "AdGuard DNS Popup Hosts filter",
@@ -351,12 +351,6 @@ export default {
             "categoryId": "other",
             "homepage": "https://github.com/crazy-max/WindowsSpyBlocker",
             "source": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_23.txt"
-        },
-        "nextdns_adblock_1": {
-            "name": "NextDNS adblock Part1",
-            "categoryId": "general",
-            "homepage": "https://github.com/crazy-max/WindowsSpyBlocker",
-            "source": "https://dl.nextzenos.com/firewall/NextDNS/adblock-part1.txt"
         },
     }
 }
